@@ -96,25 +96,3 @@
 | **適合情境** | 快速開發、標準功能、新手入門 | 需要使用最新功能、需要完全控制、輕量級專案 |
 
 ---
-
-## `LINE_SDK_REST.py` 的使用方法與時機
-
-經過分析，`LINE_SDK_REST.py` 的內容與 `LINE_REST_API.py` 幾乎完全相同。兩者都展示了如何直接透過 `requests` 函式庫來呼叫 LINE Messaging API。
-
-因此，你可以將 `LINE_SDK_REST.py` 視為 `LINE_REST_API.py` 的一個副本或備份。
-
-### 使用方法
-
-其使用方法與 `LINE_REST_API.py` 完全相同：
-
-1.  **設定憑證**: 將 `YOUR_CHANNEL_ACCESS_TOKEN` 和 `YOUR_CHANNEL_SECRET` 替換成你自己的 LINE Bot 憑證。
-2.  **執行程式**: 透過 `python LINE_SDK_REST.py` 啟動 Flask 伺服器。
-3.  **設定 Webhook**: 將你的伺服器 URL（例如 `https://your-domain.com/callback`）設定到 LINE Developer Console 的 Webhook URL 中。
-
-### 使用時機
-
-直接呼叫 RESTful API（如此檔案所示範的）的時機與前述 `LINE_REST_API.py` 的建議相同：
-
-1.  **需要使用 SDK 尚未支援的最新功能**: 當 LINE 剛推出新的 API 功能，而官方 SDK 還來不及更新時，你可以直接參考 API 文件來發送請求。
-2.  **追求最大限度的客製化與控制**: 當你需要精確控制請求的每個細節，或是想用自己的方式來組織程式碼，而不希望被 SDK 的框架限制時。
-3.  **不想為專案增加額外的依賴**: 如果你的專案很小，或是不想引入 `line-bot-sdk` 這個額外的套件，直接使用 `requests` 會讓專案更輕量。
